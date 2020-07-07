@@ -1,0 +1,37 @@
+<!-- Desafio 2 ( Conversor de números romanos para decimais ) -->
+
+<!-- Não fiz o design, pois foquei na lógica -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Desafio 2</title>
+</head>
+<body>
+	<form id="formConvert">
+		<input id="romanNumber"/>
+		<input id="returnRomanNumberConverted" />
+		<button type="submit">Converter</button>
+	</form>
+	<script type="text/javascript">
+		const operateConvertingRomanNumber = document.querySelector('#formConvert');
+		operateConvertingRomanNumber.onsubmit = function (event) {
+			event.preventDefault();
+
+			const valuesLettersRoman = {
+				I: 1,
+				V: 5,
+				X: 10,
+				L: 50,
+				C: 100,
+				M: 1000
+			}
+
+			const romanNumber = document.querySelector('#romanNumber').value;
+			const valueTotalRoman = romanNumber.split('')
+				.map(letters => valuesLettersRoman[letters])
+				.reduce((number, valueTotal) => number + valueTotal, 0);
+			console.log(valueTotalRoman);
+		}
+	</script>
+</body>
+</html>
