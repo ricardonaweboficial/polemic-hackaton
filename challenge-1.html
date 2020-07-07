@@ -1,0 +1,44 @@
+ <!-- Desafio 1 (Conversor de Graus Celsius para Farenheint e Vice-versa) -->
+
+<!-- Não fiz o design, pois foquei na lógica -->
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<title>Desafio 1</title>
+ </head>
+ <body>
+ 	<input type="number" id="grade" />
+ 	<input id="returnGradeConverted"/>
+ 	<select id="optionSelect" onchange="whatOptionConvert()">
+ 		<option>Opções para Converter</option>
+ 		<option value="convertCelsiusToFarenheint">Celsius para Farenheint</option>
+ 		<option value="convertFarenheintToCelsius">Farenheint para Celsius</option>
+ 	</select>
+ 	<script type="text/javascript">
+ 		const returnGradeConverted = document.querySelector('#returnGradeConverted');
+
+ 		const whatConvert = {
+ 			convertCelsiusToFarenheint,
+			convertFarenheintToCelsius
+ 		}
+
+ 		function whatOptionConvert() {
+ 			const optionSelect = document.querySelector('#optionSelect').value;
+ 			const whichFunctionOperate = whatConvert[optionSelect];
+ 			whichFunctionOperate();
+ 		}
+
+ 		function convertCelsiusToFarenheint() {
+ 			const valueGrade = document.querySelector('#grade').value;
+ 			const convertingGrade = (valueGrade * (9/5)) + 32;
+ 			returnGradeConverted.value = convertingGrade;
+ 		}
+
+ 		function convertFarenheintToCelsius() {
+ 			const valueGrade = document.querySelector('#grade').value;
+ 			const convertingGrade = (valueGrade - 32) * (9/5);
+ 			returnGradeConverted.value = convertingGrade;
+ 		}
+ 	</script>
+ </body>
+ </html>
