@@ -1,0 +1,59 @@
+<!-- Desafio 10 ( Programa que Calcula a fórmula de baskaras ) -->
+
+<!-- Não fiz o design, pois foquei na lógica -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Desafio 10</title>
+</head>
+<body>
+	<h3>Validando para equação do 2º Grau</h3>
+	<form>
+		<label>A = </label>
+		<input id="a" type="number" />²
+		<br />
+		<label>B = </label>
+		<input id="b" type="number" />
+		<br />
+		<label>C = </label>
+		<input id="c" type="number" />
+		<br />
+		<button>Pegar Valores</button>
+	</form>
+	<div class="returnValueCalculated">
+		<h1>ainda nada</h1>
+	</div>
+
+	<script type="text/javascript">
+		const btnTakeValues = document.querySelector('form');
+
+		btnTakeValues.onsubmit = function (e) {
+			e.preventDefault();
+
+			const a = document.querySelector('#a').value;
+			const b = document.querySelector('#b').value;
+			const c = document.querySelector('#c').value;
+
+			const delta = (Math.abs(b)*Math.abs(b)) - (4*Math.abs(a)*Math.abs(c));
+
+			if(delta > 0) { // Delta will have 2 roots
+
+				const x1 = ( -b + Math.sqrt(delta) ) / (2 * a);
+				const x2 = ( -b - Math.sqrt(delta) ) / (2 * a);
+				alert(`A equação tem 2 raizes que são x¹=${x1} e x²=${x2}`);
+
+			} else if (delta == 0) { // Delta will have 1 roots
+
+				const x1 = (-b + Math.sqrt(delta) ) / (2 * a);
+				alert(`A equação só tem 1 raiz que é x¹=${x1}`);
+
+			} else{ /// Delta will have no roots
+
+				alert(`A equação não tem raiz, pois delta é menor que 0`);
+
+			}
+
+		}
+	</script>
+</body>
+</html>
